@@ -6,12 +6,8 @@ class	NegociacaoController	{
         this._inputQuantidade = $('#quantidade');
         this._inputValor = $('#valor');
 
-        /*
-        const self = this;
-        this._negociacoes =	new	Negociacoes(model => {
-            this._negociacoesView.update(model);
-        });
-        */
+        this._service = new NegociacaoService();
+
         
         this._negociacoes =	new	Bind(
             new	Negociacoes(),	
@@ -44,6 +40,21 @@ class	NegociacaoController	{
                 this._mensagem.texto = 'Um erro não esperado aconteceu. Entre em contato com o suporte';
             }
         }
+    }
+
+    importaNegociacoes() {
+
+        this._service.obterNegociacoesDaSemana((err, negociacoes) => {
+            
+            if (err) {
+                this._mensagem.texto = 'Não	foi	possível	obter	nas	negociações	da	semana';
+                return;
+            }
+
+            negociacoes.forEach(negociacao => this._negociacoes.adiciona(negociacao));
+
+            this._mensagem.texto = 'Negociações	importadas	com	sucesso';
+        });
     }
 
     apaga()	{
