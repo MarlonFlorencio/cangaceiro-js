@@ -1,14 +1,26 @@
-class	Mensagem	{
+System.register([], function (_export, _context) {
+    "use strict";
 
-    constructor(texto = '')	{
-        this._texto	= texto;
-    }
+    return {
+        setters: [],
+        execute: function () {
+            class Mensagem {
 
-    get	texto()	{
-        return	this._texto;
-    }
+                constructor(texto = '') {
+                    this._texto = texto;
+                }
 
-    set	texto(texto) {
-        this._texto	= texto;
-    }
-}
+                get texto() {
+                    return this._texto;
+                }
+
+                set texto(texto) {
+                    this._texto = texto;
+                }
+            }
+
+            _export('Mensagem', Mensagem);
+        }
+    };
+});
+//# sourceMappingURL=Mensagem.js.map
