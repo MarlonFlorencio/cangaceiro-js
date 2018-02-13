@@ -8,7 +8,7 @@ System.register([], function (_export, _context) {
             let connection = null;
             let close = null;
 
-            class ConnectionFactory {
+            let ConnectionFactory = class ConnectionFactory {
                 constructor() {
                     throw new Error('Não é possível criar instâncias dessa classe');
                 }
@@ -57,7 +57,7 @@ System.register([], function (_export, _context) {
                         connection.createObjectStore(store, { autoIncrement: true });
                     });
                 }
-            }
+            };
 
             _export('ConnectionFactory', ConnectionFactory);
         }

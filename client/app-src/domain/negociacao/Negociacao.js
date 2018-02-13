@@ -1,7 +1,13 @@
+import { obrigatorio } from '../../util/index.js';
+
 export class Negociacao {
 
-    constructor(_data, _quantidade, _valor) {
-        Object.assign(this, { _quantidade, _valor});
+    constructor(
+        _data = obrigatorio('data'),
+        _quantidade = obrigatorio('quantidade'),
+        _valor = obrigatorio('valor')) {
+
+        Object.assign(this, { _quantidade, _valor });
         this._data = new Date(_data.getTime());
         Object.freeze(this);
     }
@@ -22,8 +28,8 @@ export class Negociacao {
         return this._valor;
     }
 
-    equals(negociacao)	{
+    equals(negociacao) {
         return JSON.stringify(this) == JSON.stringify(negociacao);
-    }	
+    }
 
 }

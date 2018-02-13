@@ -7,7 +7,7 @@ System.register(['./DataInvalidaException.js'], function (_export, _context) {
             DataInvalidaException = _DataInvalidaExceptionJs.DataInvalidaException;
         }],
         execute: function () {
-            class DateConverter {
+            let DateConverter = class DateConverter {
 
                 constructor() {
                     throw new Error('Esta classe não pode ser instanciada');
@@ -25,7 +25,7 @@ System.register(['./DataInvalidaException.js'], function (_export, _context) {
 
                     return new Date(...texto.split('/').reverse().map((item, indice) => item - indice % 2));
                 }
-            }
+            };
 
             _export('DateConverter', DateConverter);
         }
