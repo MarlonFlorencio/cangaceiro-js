@@ -9,8 +9,7 @@ export class NegociacaoService {
     }
 
     obtemNegociacoesDaSemana() {
-
-        return this._http.get('negociacoes/semana').then(
+        return this._http.get(`${SERVICE_URL}/negociacoes/semana`).then(
 
             dados => {
                 const negociacoes = dados.map(objeto =>
@@ -22,12 +21,11 @@ export class NegociacaoService {
                 throw new ApplicationException('Não foi possível obter as negociações');
             }
         );
-
     }
 
     obtemNegociacoesDaSemanaAnterior() {
 
-        return this._http.get('negociacoes/anterior').then(
+        return this._http.get(`${SERVICE_URL}/negociacoes/anterior`).then(
 
             dados => {
                 const negociacoes = dados.map(objeto =>
@@ -43,7 +41,7 @@ export class NegociacaoService {
     }
 
     obtemNegociacoesDaSemanaRetrasada() {
-        return this._http.get('negociacoes/retrasada').then(
+        return this._http.get(`${SERVICE_URL}/negociacoes/retrasada`).then(
 
             dados => {
                 const negociacoes = dados.map(objeto =>
